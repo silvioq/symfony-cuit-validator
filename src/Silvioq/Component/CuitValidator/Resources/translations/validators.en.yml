@@ -1,0 +1,4 @@
+'CUIT/CUIL is invalid': 'CUIT/CUIL is invalid'
+'CUIT/CUIT has incorrect length': 'CUIT/CUIT has incorrect length'
+'CUIT/CUIT is not active': 'CUIT/CUIT is not active'
+'AFIP service is not active or not could be reached': 'AFIP service is not active or not could be reached'

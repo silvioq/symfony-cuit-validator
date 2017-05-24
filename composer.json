@@ -1,0 +1,31 @@
+{
+    "name": "silvioq/cuit-validator",
+    "description": "CUIT/CUIL Validator for Argentine",
+    "type": "library",
+    "require": {
+        "symfony/validator": "^3.2",
+        "guzzlehttp/guzzle": "^6.0",
+        "symfony/var-dumper": "^3.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.7|^6.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Silvio",
+            "email": "silvioq@gmail.com"
+        }
+    ],
+    "autoload": {
+       "psr-4": { "Silvioq\\Component\\": "./src/Silvioq/Component" },
+       "exclude-from-classmap": [ "/Tests/" ]
+    },
+    "autoload-dev": {
+       "psr-4": { "Silvioq\\Component\\Tests\\": "./Tests" }
+    },
+    "archive": {
+       "exclude": ["Tests", "phpunit.xml.dist", ".travis.yml"]
+    },
+    "bin": [ "bin/cuit-validator" ]
+}

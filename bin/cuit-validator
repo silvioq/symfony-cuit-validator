@@ -1,0 +1,29 @@
+#!/usr/bin/env php
+<?php
+
+require __DIR__.'/../vendor/autoload.php';
+
+use Silvioq\Component\CuitValidator\Inspector\CuitInspector;
+use Silvioq\Component\CuitValidator\Inspector\InvalidCuitException;
+
+$program = array_shift( $argv );
+
+if( count($argv) === 0 )
+{
+    echo "Usage:" . PHP_EOL;
+    echo "  $program CUIT [, CUIT ..]". PHP_EOL;
+}
+
+$service = new CuitInspector();
+while( $cuit = array_shift( $argv ) )
+{
+    try
+    {
+        dump( $service->getData($cuit));
+    }
+    catch( InvalidCuitException $ei )
+    {
+        dump( [ 'cuit' => $cuit, 'exception' => get_class($ei), 'message' => $ei->getMessage() ] );
+    }
+}
+// vim:sw=4 ts=4 sts=4 et

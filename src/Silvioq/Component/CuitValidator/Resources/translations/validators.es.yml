@@ -1,0 +1,4 @@
+'CUIT/CUIL is invalid': 'CUIT/CUIL es inválido'
+'CUIT/CUIT has incorrect length': 'CUIT/CUIT tiene un tamaño incorrecto'
+'CUIT/CUIT is not active': 'CUIT/CUIT no es activo'
+'AFIP service is not active or not could be reached': 'El servicio de AFIP no está activo o no puede ser alcanzado'
