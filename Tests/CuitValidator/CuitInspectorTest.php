@@ -147,5 +147,11 @@ class CuitInspectorTest extends TestCase
         $this->assertEquals( '20123456789', CuitInspector::sanitizeCuit( '20-12345678 9 ') );
     }
 
+    public function testNormalize()
+    {
+        $this->assertSame('20-12345678-9', CuitInspector::normalizeCuit('20123-45678   9'));
+        $this->assertSame('12345678',  CuitInspector::normalizeCuit('1.234a5678a'));
+    }
+
 }
 // vim:sw=4 ts=4 sts=4 et

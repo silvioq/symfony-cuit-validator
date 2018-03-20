@@ -27,15 +27,35 @@ class CuitInspector
         else
             $this->client = $client;
     }
-    
+
     /**
      * Sanitize CUIT / CUIL, cleaning invalid characters
+     *
      * @param string $cuit
      * @return string
      */
-    static public function sanitizeCuit( $cuit )
+    static public function sanitizeCuit($cuit):string
     {
         return preg_replace( '/[^0123456789]/', '', $cuit );
+    }
+
+    /**
+     * Normalize CUIT/CUIT
+     *
+     * Normalize in 99-99999999-9 format (with dashs)
+     * If CUIT has invalid length, returns sanitized value
+     *
+     * @param string $cuit
+     * @return string
+     */
+    static public function normalizeCuit(string $cuit):string
+    {
+        $cuit = self::sanitizeCuit($cuit);
+        if (11 === strlen($cuit)) {
+            return substr($cuit, 0, 2) . '-' . substr($cuit,2,8) . '-' . substr($cuit,10,1);
+        }
+
+        return $cuit;
     }
 
     /**
