@@ -3,7 +3,7 @@
     "description": "CUIT/CUIL Validator for Argentine",
     "type": "library",
     "require": {
-        "php": ">=5.6.0",
+        "php": ">=7.0.8",
         "symfony/validator": "^3.2",
         "guzzlehttp/guzzle": "^6.0"
     },
