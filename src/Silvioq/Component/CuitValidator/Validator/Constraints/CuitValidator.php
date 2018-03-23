@@ -7,6 +7,7 @@ use Symfony\Component\Validator\ConstraintValidator;
 use Silvioq\Component\CuitValidator\Inspector\CuitInspector;
 use Silvioq\Component\CuitValidator\Inspector\InvalidCuitException;
 use Silvioq\Component\CuitValidator\Inspector\CuitInspectionException;
+use Silvioq\Component\CuitValidator\Validator\ForeignCuitChecker;
 
 /**
  * @author silvioq
@@ -103,6 +104,14 @@ class CuitValidator extends ConstraintValidator
                     $this->context
                         ->buildViolation($constraint->serviceNotActiveMessage)
                         ->addViolation();
+            }
+        }
+
+        if (true === $constraint->foreignCuit) {
+            if (!(new ForeignCuitChecker())->isForeign($cuit)) {
+                $this->context
+                    ->buildViolation($constraint->invalidForeignCuit)
+                    ->addViolation();
             }
         }
     }

@@ -16,9 +16,9 @@ class Cuit extends Constraint
     public $incorrectLenMessage = 'CUIT/CUIT has incorrect length';
     public $cuitNotActiveMessage = 'CUIT/CUIT is not active';
     public $serviceNotActiveMessage = 'AFIP service is not active or not could be reached';
+    public $invalidForeignCuit = 'CUIT/CUIT is not foreign.';
     public $checkState = false;
     public $throwOnNetworkError = true;
-
-
+    public $foreignCuit = false;
 }
 // vim:sw=4 ts=4 sts=4 et

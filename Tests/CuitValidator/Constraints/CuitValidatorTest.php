@@ -40,6 +40,35 @@ class CuitValidatorTest extends ConstraintValidatorTestCase
         $this->assertNoViolation();
     }
 
+    public function testForeignCuits()
+    {
+        $constraint = new Cuit();
+        $constraint->foreignCuit = true;
+
+        $this->validator->validate('50-00000005-9', $constraint);
+        $this->assertNoViolation();
+    }
+
+    public function testInvalidForeignCuits()
+    {
+        $constraint = new Cuit();
+        $constraint->foreignCuit = true;
+
+        $this->validator->validate('20-11111113-9', $constraint);
+        $this->buildViolation($constraint->invalidForeignCuit)
+            ->assertRaised();
+    }
+
+    public function testMustRaiseOnlyInvalidCuitWhenForeignCuitIsActive()
+    {
+        $constraint = new Cuit();
+        $constraint->foreignCuit = true;
+
+        $this->validator->validate('20-11111113-3', $constraint);
+        $this->buildViolation($constraint->invalidMessage)
+            ->assertRaised();
+    }
+
     public function getInvalidCuits()
     {
         $cuit = new Cuit();
@@ -58,6 +87,7 @@ class CuitValidatorTest extends ConstraintValidatorTestCase
         return [
             [ '20-11111111-2' ],
             [ '20-11111113-9' ],
+            [ '50-00000005-9'],
          ];
     }
 
