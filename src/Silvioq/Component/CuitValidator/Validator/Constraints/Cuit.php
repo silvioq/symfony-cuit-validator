@@ -13,10 +13,10 @@ use Symfony\Component\Validator\ConstraintValidator;
 class Cuit extends Constraint
 {
     public $invalidMessage = 'CUIT/CUIL is invalid';
-    public $incorrectLenMessage = 'CUIT/CUIT has incorrect length';
-    public $cuitNotActiveMessage = 'CUIT/CUIT is not active';
+    public $incorrectLenMessage = 'CUIT/CUIL has incorrect length';
+    public $cuitNotActiveMessage = 'CUIT/CUIL is not active';
     public $serviceNotActiveMessage = 'AFIP service is not active or not could be reached';
-    public $invalidForeignCuit = 'CUIT/CUIT is not foreign.';
+    public $invalidForeignCuit = 'CUIT/CUIL is not foreign.';
     public $checkState = false;
     public $throwOnNetworkError = true;
     public $foreignCuit = false;
