@@ -4,7 +4,7 @@
     "type": "library",
     "require": {
         "php": ">=7.0.8",
-        "symfony/validator": "^3.2",
+        "symfony/validator": "^3.2|^4",
         "guzzlehttp/guzzle": "^6.0"
     },
     "require-dev": {
